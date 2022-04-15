@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/sample.css">
+  <title>じゃんけん</title>
+</head>
+
+<body>
+  <header>
+    <div class="title">
+    <h1 class="title_h">じゃんけん</h1>
+  </div>
+  </header>
+
+  <main>
+    <ul>
+      <li id="gu_btn">グー</li>
+      <!-- <img class="image_gu" src="/img/jerry_gu.png" alt=""> -->
+      
+      <li id="cho_btn">チョキ</li>
+      <!-- <img class="image_choki" src="/img/スパイク.png" alt=""> -->
+
+      <li id="par_btn">パー</li>
+      <!-- <img class="image_pa" src="/img/トム　パー.jpeg" alt=""> -->
+      
+    </ul>
+
+    <div id="com_hand">コンピュータの出した手は？</div>
+    <div id="result">結果は？</div>
+  </main>
+
+  <footer>フッター</footer>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script>
+    //ここに処理を追加
+
+    // $('#pull').on('click',function(){
+
+    //   const min = 0;
+    //   const max = 4;
+    //   const randomNumber = Math.floor(Math.random()* (max - min + 1)) + min;
+
+    // })
+
+      
+
+
+    // グーの場合
+      $('#gu_btn').on('click',function(){
+      const min = 0;
+      const max = 2;
+      const randomNumber = Math.floor(Math.random() * (max - min +1)) + min;
+    
+      // 0=グー　1=ちょき　2=パー
+      // グー出された
+        if(randomNumber === 0) {
+          $("#com_hand").html("<img class=image_gu src=/img/jerry_gu.png>");
+          $("#result").text("あいこ");
+
+        // チョキ出された
+        }else if (randomNumber === 1) {
+          $("#com_hand"). html("<img class=image_choki src=/img/スパイク.png>");
+          $("#result").text("あなたの負け");
+
+        // パー出された
+        }else if (randomNumber === 2) {
+          $("#com_hand").html("<img class=image_pa src=/img/tom_pa.png>");
+          $("#result").text("あなたの勝ち");
+
+        }
+      });
+       
+    //  チョキの場合
+      $("#cho_btn").on('click',function(){
+      const min = 0;
+      const max = 2;
+      const randomNumber = Math.floor(Math.random() * (max - min +1))+ min;
+
+        // グーが出された
+        if (randomNumber === 0) {
+          $("#com_hand").text("グー");
+          $("#result").text("負け");
+
+          // チョキが出された
+        }else if (randomNumber === 1) {
+          $("#com_hand").text("チョキ");
+          $("#result").text("あいこ");
+
+          // パーが出された
+        } else if (randomNumber === 2) {
+          $("#com_hand").text("パー");
+          $("#result").text("勝ち");
+        }
+      });
+ 
+      // パーの場合
+      $("#par_btn").on('click',function(){
+      const min = 0;
+      const max = 2;
+      const randomNumber = Math.floor(Math.random() * (max - min +1)) + min;
+
+        // グーが出された
+        if(randomNumber === 0) {
+            $("#com_hand").text("グー");
+            $("#result").text("勝ち");
+
+        // チョキが出された
+        } else if(randomNumber === 1) {
+          $("#com_hand").text("チョキ");
+          $("#result").text("勝ち");  
+          
+        // パーが出された
+        } else if(randomNumber === 2) {
+          $("#com_hand").text("パー");
+          $("#result").text("あいこ");
+        }
+    });
+    
+
+  </script>
+
+</body>
+
+</html>
